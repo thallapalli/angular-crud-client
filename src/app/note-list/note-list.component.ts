@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ["./note-list.component.styl"]
 })
 export class NoteListComponent implements OnInit {
-  note: Observable<Note[]>;
+  notes: Observable<Note[]>;
 
   constructor(private noteService: NoteService,
     private router: Router) {}
@@ -21,8 +21,10 @@ export class NoteListComponent implements OnInit {
   }
 
   reloadData() {
-  console.log(this.noteService.getNotesList());
-    this.note = this.noteService.getNotesList();
+  	 
+    this.notes = this.noteService.getNotesList();
+    
+    
   }
 
   deleteNote(id: number) {

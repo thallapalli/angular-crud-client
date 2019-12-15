@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class NoteService {
 
-  private baseUrl = 'http://ktcrud-app-dev.ca-central-1.elasticbeanstalk.com/retrievenotes';
+  private baseUrl = 'http://ktcrud-app-dev.ca-central-1.elasticbeanstalk.com';
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +16,7 @@ export class NoteService {
   }
 
   createNote(note: Object): Observable<Object> {
-    return this.http.post('${this.baseUrl}', note);
+    return this.http.post(this.baseUrl+'/createnote', note);
   }
 
   updateNote(id: number, value: any): Observable<Object> {
@@ -28,7 +28,9 @@ export class NoteService {
   }
 
   getNotesList(): Observable<any> {
- 
-    return this.http.get('${this.baseUrl}');
+     //console.log(this.baseUrl);
+     //this.http.get(this.baseUrl).subscribe(responseData => console.log(responseData));
+    //return this.http.get('${this.baseUrl}');
+   return this.http.get(this.baseUrl+'/retrievenotes');
   }
 }
