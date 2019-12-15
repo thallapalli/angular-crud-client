@@ -14,5 +14,4 @@ phases:
       - ng build --prod
 artifacts:
   files:
-    baseDirectory: 
-    - dist/angular-crud-client
+   - dist/**/*
