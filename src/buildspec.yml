@@ -1,6 +1,14 @@
 version: 0.1
 frontend:
   phases:
+  
+   install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo Installing angular cli...
+      - npm install -g @angular/cli
+      
     preBuild:
       commands:
         - npm ci
