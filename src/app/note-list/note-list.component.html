@@ -1,1 +1,26 @@
-<p>note-list works!</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Note List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let note of notes | async">
+          <td>{{note.id}}</td>
+          <td>{{note.name}}</td>
+        
+          <td><button (click)="deleteNote(note.id)" class="btn btn-danger">Delete</button>
+              <button (click)="noteDetails(note.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

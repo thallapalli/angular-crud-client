@@ -1,1 +1,16 @@
-<p>note-details works!</p>
+<h2>Note Details</h2> 
+
+<hr/>
+<div *ngIf="note">
+  <div>
+    <label><b>Name: </b></label> {{note.name}}
+  </div>
+  
+  <div>
+    <label><b>Id: </b></label> {{note.id}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Note List</button><br>
