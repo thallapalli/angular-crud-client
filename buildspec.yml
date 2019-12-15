@@ -1,24 +1,18 @@
-version: 0.1
-frontend:
-  phases:
-  
-   install:
+version: 0.2
+
+phases:
+  install:
     runtime-versions:
       nodejs: 10
     commands:
       - echo Installing angular cli...
       - npm install -g @angular/cli
-      
-    preBuild:
-      commands:
-        - npm ci
-    build:
-      commands:
-        - npm run build
-  artifacts:
-    baseDirectory: dist/angular-crud-client
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
+      - yarn add @angular-devkit/build-angular --dev
+  build:
+    commands:
+      - echo Build started...
+      - ng build --prod
+artifacts:
+  files:
+    baseDirectory: 
+    - dist/angular-crud-client
