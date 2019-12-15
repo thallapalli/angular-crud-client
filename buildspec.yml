@@ -1,17 +1,35 @@
 version: 0.2
 
+env:
+    variables:
+        S3_BUCKET: "kt-angular-deploy"
 phases:
-  install:
+install:
     runtime-versions:
-      nodejs: 10
+        nodejs: 10
     commands:
-      - echo Installing angular cli...
-      - npm install -g @angular/cli
-      - yarn add @angular-devkit/build-angular --dev
-  build:
+    - echo $CODEBUILD_SRC_DIR
+    - npm install -y npm@latest
+    - npm install -g @angular/cli
+    - rm package-lock.json
+pre_build:
     commands:
-      - echo Build started...
-      - ng build --prod
+    - npm install
+build:
+    commands:
+    - ng build
+    - ls -l -F
+post_build:
+    commands:
+            # Clear S3 bucket.
+            - aws s3 rm s3://${S3_BUCKET} --recursive
+            - echo S3 bucket is cleared.
+            - aws s3 cp dist/angular-crud-client s3://${S3_BUCKET} --recursive          
 artifacts:
-  files:
-    - dist/**/*
+    files:
+        - '/'
+    discard-paths: yes
+    base-directory: 'dist*'
+cache:
+paths:
+    - node_modules/
