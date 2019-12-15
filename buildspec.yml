@@ -30,6 +30,6 @@ artifacts:
         - '/'
     discard-paths: yes
     base-directory: 'dist*'
-cache:
-paths:
+    
+ paths:
     - node_modules/
