@@ -2,6 +2,7 @@
   "name": "angular-crud-client",
   "version": "0.0.0",
   "scripts": {
+    "client": "npm install express",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
