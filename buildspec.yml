@@ -19,7 +19,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - ng build --dev
+      - ng build --prod
   post_build:
      commands:
      - echo Build completed on `date`
