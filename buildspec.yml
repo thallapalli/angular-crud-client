@@ -11,7 +11,6 @@ phases:
       - echo Installing source NPM dependencies...
       - npm cache clean --force
       - npm install
-      - npm init
       - npm install -d
       - npm install -g @angular/cli
       - npm install --save-dev @angular-devkit/build-angular
