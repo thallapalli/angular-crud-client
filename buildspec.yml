@@ -10,8 +10,6 @@ phases:
     commands:
       - echo Installing source NPM dependencies...
       - npm cache clean --force
-      - npm install
-      - npm install -d
       - npm install -g @angular/cli
       - npm install --save-dev @angular-devkit/build-angular
       - npm install express --save
@@ -23,6 +21,8 @@ phases:
   post_build:
      commands:
      - echo Build completed on `date`
+     - echo installing npm to address express js issue
+     - npm install
 artifacts:
   files:
       - '**/*'
