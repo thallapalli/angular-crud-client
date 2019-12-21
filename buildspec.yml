@@ -12,7 +12,7 @@ phases:
       - npm cache clean --force
       - npm install -g @angular/cli
       - npm install --save-dev @angular-devkit/build-angular
-      - npm install express --save
+      - npm install --save express
       - npm install webpack-dev-server
   build:
     commands:
