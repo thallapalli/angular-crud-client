@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class NoteService {
 
-  private baseUrl = 'http://ktcrud-app-uat.ca-central-1.elasticbeanstalk.com';
+  private baseUrl = 'http://ktcrud-app-dev.ca-central-1.elasticbeanstalk.com';
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +26,7 @@ export class NoteService {
   deleteNote(id: number): Observable<any> {
     console.log(id);
     var n = id.toString();
-    return this.http.delete(`http://ktcrud-app-uat.ca-central-1.elasticbeanstalk.com/deletenote/${n}`, { responseType: 'text' });
+    return this.http.delete(`http://ktcrud-app-dev.ca-central-1.elasticbeanstalk.com/deletenote/${n}`, { responseType: 'text' });
   }
 
   getNotesList(): Observable<any> {
