@@ -1,0 +1,35 @@
+version: 0.2
+env:
+  variables:
+    S3_BUCKET: "kt-angular-deploy"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm cache clean --force
+      - npm install -g @angular/cli
+      - npm install --save-dev @angular-devkit/build-angular
+      - npm install --save express
+      - npm install webpack-dev-server
+      - npm install
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - ng build --prod
+  post_build:
+     commands:
+     - echo Build completed on `date`
+     - echo installing npm to address express js issue
+     - npm install --save express
+     - npm install
+
+
+artifacts:
+  files:
+      - '**/*'
+  base-directory: dist/angular-crud-client
+  discard-paths: yes

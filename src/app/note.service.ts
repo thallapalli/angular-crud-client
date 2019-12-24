@@ -24,7 +24,9 @@ export class NoteService {
   }
 
   deleteNote(id: number): Observable<any> {
-    return this.http.delete('${this.baseUrl}/${id}', { responseType: 'text' });
+    console.log(id);
+    var n = id.toString();
+    return this.http.delete(`http://ktcrud-app-dev.ca-central-1.elasticbeanstalk.com/deletenote/${n}`, { responseType: 'text' });
   }
 
   getNotesList(): Observable<any> {

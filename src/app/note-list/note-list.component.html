@@ -16,7 +16,7 @@
 					<td>{{note.id}}</td>
 					<td>{{note.name}}</td>
 					<!--  (click)="deleteNote(note.id)"  (click)="noteDetails(note.id)" -->
-					<td><button class="btn btn-danger">Delete</button>
+					<td><button (click)="deleteNote(note.id)" class="btn btn-danger">Delete</button>
 						<button class="btn btn-info" style="margin-left: 10px">Details</button></td>
 				</tr>
 			</tbody>

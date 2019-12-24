@@ -6,7 +6,7 @@ import { NoteListComponent } from './note-list/note-list.component';
 import { UpdateNoteComponent } from './update-note/update-note.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'note', pathMatch: 'full' },
+  { path: '', redirectTo: 'notes', pathMatch: 'full' },
   { path: 'notes', component: NoteListComponent },
   { path: 'add', component: CreateNoteComponent },
   { path: 'update/:id', component: UpdateNoteComponent },
